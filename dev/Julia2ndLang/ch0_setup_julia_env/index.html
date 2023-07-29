@@ -11,20 +11,20 @@ $ cd ~/.julia/environments/nvim-lspconfig/
 $ make</code></pre><p>After <code>make</code> command, <code>neovim</code> is launched and open <code>Example.jl</code> source file with some errors. If you wait a moment and no problem occur to install, you can find some bullets as following screenshot.</p><p><img src="../../assets/julia_lsp_result.png" alt="Example.jl with bullets"/></p><p>Then just quit <code>neovim</code> and continue and finish installation. To test installation, open any example Julia file and change keyword <code>function</code> to <code>func tion</code> and at the same line, input <code>gl</code>. If you have some bullets and messages as following, your installation is successful. <img src="../../assets/julia_lsp_install_success.png" alt="Success to install"/></p><p>If you have any error to load Julia LSP, you can find following errror message in <code>neovim</code>. <img src="../../assets/julia_lsp_error.png" alt="Fail message"/></p><p>As you can find in the following, <code>LanguageServer</code> package depends on <code>JuliaFormatter</code>, <code>StaticLint</code>, and <code>SymbolServer</code>. That means we do not have to install <code>JuliaFormatter</code> separately.</p><pre><code class="language-julia hljs">using Pkg
 Pkg.add(&quot;LanguageServer&quot;)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">    Updating registry at `~/.julia/registries/General.toml`
    Resolving package versions...
-   Installed Tokenize ─────────── v0.5.25
-   Installed StaticLint ───────── v8.1.0
    Installed TestItemDetection ── v0.2.0
-   Installed LanguageServer ───── v4.4.0
+   Installed StaticLint ───────── v8.1.0
+   Installed Tokenize ─────────── v0.5.25
    Installed Crayons ──────────── v4.1.1
    Installed URIs ─────────────── v1.4.2
+   Installed OrderedCollections ─ v1.6.2
+   Installed LanguageServer ───── v4.4.0
+   Installed SymbolServer ─────── v7.2.1
    Installed CommonMark ───────── v0.8.12
    Installed JuliaFormatter ───── v1.0.34
-   Installed Compat ───────────── v4.8.0
-   Installed SymbolServer ─────── v7.2.1
    Installed JSONRPC ──────────── v1.3.6
-   Installed CSTParser ────────── v3.3.6
-   Installed OrderedCollections ─ v1.6.2
    Installed Glob ─────────────── v1.3.1
+   Installed Compat ───────────── v4.8.0
+   Installed CSTParser ────────── v3.3.6
    Installed DataStructures ───── v0.18.14
     Updating `~/work/JuliaStudy.jl/JuliaStudy.jl/docs/Project.toml`
   [2b0e0bc5] + LanguageServer v4.4.0
@@ -60,85 +60,59 @@ Precompiling project...
 <span class="sgr32">  ✓ </span><span class="sgr90">StaticLint</span>
 <span class="sgr32">  ✓ </span><span class="sgr90">JuliaFormatter</span>
 <span class="sgr32">  ✓ </span>LanguageServer
-  15 dependencies successfully precompiled in 55 seconds. 21 already precompiled.</code></pre><p>To format your code, you can find related commends in <a href="https://github.com/erdosxx/Neovim-from-scratch/blob/27_Julia_REPL/lua/user/keymaps.lua">keymaps.lua</a> file. Type <code>:Format</code> in command or <code>&lt;space key&gt;f</code>(when <code>&lt;localleader&gt;</code> = <code>&lt;space key&gt;</code>) in normal mode, whole code in the file will be formatted.</p><div class="admonition is-info"><header class="admonition-header">Info</header><div class="admonition-body"><p>To get supported to Julia formatting, we can also try to use <a href="https://github.com/kdheepak/JuliaFormatter.vim">JuliaFormatter.vim</a>. This only supports formatting and no other LSP function but range format supporting in visual mode and definition of format option in configuration file are possible. This uses <a href="https://github.com/domluna/JuliaFormatter.jl">JuliaFormatter</a> independently. However, I found that when we use Julia LSP with this package, LSP was crashed occasionally. So I decided to uninstall it.</p></div></div><p>To define format parameters in Julia code is not easy in <a href="https://github.com/erdosxx/Neovim-from-scratch/blob/27_Julia_REPL/lua/user/lsp/settings/julials.lua">LSP configuration file</a>. The solution is use <a href="https://domluna.github.io/JuliaFormatter.jl/dev/config/">&#39;.JuliaFormatter.toml&#39;</a> file in every repo. So it can be convenient to add this file to PkgTemplates. (See below section)</p><div class="admonition is-info"><header class="admonition-header">Info</header><div class="admonition-body"><p>The useful configuration to format is</p><ul><li>style = &quot;sciml&quot;</li><li>indent = 2</li><li>margin = 79</li></ul><p>For style options, see <a href="https://domluna.github.io/JuliaFormatter.jl/dev/yas_style/">YAS</a>, <a href="https://domluna.github.io/JuliaFormatter.jl/dev/blue_style/">Blue</a>, and <a href="https://domluna.github.io/JuliaFormatter.jl/dev/sciml_style/">SciML</a>.</p></div></div><h2 id="Use-[PkgTemplates](https://github.com/JuliaCI/PkgTemplates.jl)-to-generate-repository"><a class="docs-heading-anchor" href="#Use-[PkgTemplates](https://github.com/JuliaCI/PkgTemplates.jl)-to-generate-repository">Use <a href="https://github.com/JuliaCI/PkgTemplates.jl">PkgTemplates</a> to generate repository</a><a id="Use-[PkgTemplates](https://github.com/JuliaCI/PkgTemplates.jl)-to-generate-repository-1"></a><a class="docs-heading-anchor-permalink" href="#Use-[PkgTemplates](https://github.com/JuliaCI/PkgTemplates.jl)-to-generate-repository" title="Permalink"></a></h2><p>PkgTemplates simplifies the process of setting up the initial file structure for a new repository, specifically <a href="https://en.wikipedia.org/wiki/Continuous_integration">CI</a> integration with GitHub actions. To use PkgTemplates, we recommend to install it in system default Julia environment, for example, <code>v1.9</code> as following.</p><pre><code class="language-julia hljs">using Pkg
-Pkg.activate()
-Pkg.add(&quot;PkgTemplates&quot;)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">  Activating project at `~/.julia/environments/v1.9`
-   Resolving package versions...
-   Installed IteratorInterfaceExtensions ─ v1.0.0
-   Installed DataValueInterfaces ───────── v1.0.0
-   Installed Tables ────────────────────── v1.10.1
-   Installed UnPack ────────────────────── v1.0.2
-   Installed DataAPI ───────────────────── v1.15.0
-   Installed Mustache ──────────────────── v1.0.17
-   Installed TableTraits ───────────────── v1.0.1
-   Installed ExprTools ─────────────────── v0.1.10
-   Installed Mocking ───────────────────── v0.7.7
-   Installed PkgTemplates ──────────────── v0.7.38
-   Installed Parameters ────────────────── v0.12.3
-    Updating `~/.julia/environments/v1.9/Project.toml`
-  [14b8a8f1] + PkgTemplates v0.7.38
-    Updating `~/.julia/environments/v1.9/Manifest.toml`
-  [34da2185] + Compat v4.8.0
-  [9a962f9c] + DataAPI v1.15.0
-  [e2d170a0] + DataValueInterfaces v1.0.0
-  [e2ba6199] + ExprTools v0.1.10
-  [82899510] + IteratorInterfaceExtensions v1.0.0
-  [78c3b35d] + Mocking v0.7.7
-  [ffc61752] + Mustache v1.0.17
-  [bac558e1] + OrderedCollections v1.6.2
-  [d96e819e] + Parameters v0.12.3
-  [14b8a8f1] + PkgTemplates v0.7.38
-  [3783bdb8] + TableTraits v1.0.1
-  [bd369af6] + Tables v1.10.1
-  [3a884ed6] + UnPack v1.0.2
-  [0dad84c5] + ArgTools v1.1.1
-  [56f22d72] + Artifacts
-  [2a0f44e3] + Base64
-  [ade2ca70] + Dates
-  [f43a241f] + Downloads v1.6.0
-  [7b1f6079] + FileWatching
-  [b77e0a4c] + InteractiveUtils
-  [b27032c2] + LibCURL v0.6.3
-  [76f85450] + LibGit2
-  [8f399da3] + Libdl
-  [37e2e46d] + LinearAlgebra
-  [56ddb016] + Logging
-  [d6f4376e] + Markdown
-  [ca575930] + NetworkOptions v1.2.0
-  [44cfe95a] + Pkg v1.9.2
-  [de0858da] + Printf
-  [3fa0cd96] + REPL
-  [9a3f8284] + Random
-  [ea8e919c] + SHA v0.7.0
-  [9e88b42a] + Serialization
-  [6462fe0b] + Sockets
-  [fa267f1f] + TOML v1.0.3
-  [a4e569a6] + Tar v1.10.0
-  [8dfed614] + Test
-  [cf7118a7] + UUIDs
-  [4ec0a83e] + Unicode
-  [e66e0078] + CompilerSupportLibraries_jll v1.0.5+0
-  [deac9b47] + LibCURL_jll v7.84.0+0
-  [29816b5a] + LibSSH2_jll v1.10.2+0
-  [c8ffd9c3] + MbedTLS_jll v2.28.2+0
-  [14a3606d] + MozillaCACerts_jll v2022.10.11
-  [4536629a] + OpenBLAS_jll v0.3.21+4
-  [83775a58] + Zlib_jll v1.2.13+0
-  [8e850b90] + libblastrampoline_jll v5.8.0+0
-  [8e850ede] + nghttp2_jll v1.48.0+0
-  [3f19e933] + p7zip_jll v17.4.0+0
-Precompiling project...
-<span class="sgr32">  ✓ </span><span class="sgr90">DataValueInterfaces</span>
-<span class="sgr32">  ✓ </span><span class="sgr90">IteratorInterfaceExtensions</span>
-<span class="sgr32">  ✓ </span><span class="sgr90">DataAPI</span>
-<span class="sgr32">  ✓ </span><span class="sgr90">CompilerSupportLibraries_jll</span>
-<span class="sgr32">  ✓ </span><span class="sgr90">UnPack</span>
-<span class="sgr32">  ✓ </span><span class="sgr90">ExprTools</span>
-<span class="sgr32">  ✓ </span><span class="sgr90">TableTraits</span>
-<span class="sgr32">  ✓ </span><span class="sgr90">Mocking</span>
-<span class="sgr32">  ✓ </span><span class="sgr90">Parameters</span>
-<span class="sgr32">  ✓ </span><span class="sgr90">Tables</span>
-<span class="sgr32">  ✓ </span><span class="sgr90">Mustache</span>
-<span class="sgr32">  ✓ </span>PkgTemplates
-  12 dependencies successfully precompiled in 5 seconds. 6 already precompiled.</code></pre><p>After installing it, we need to setup the template. It would be convenient to keep it in the <a href="https://github.com/erdosxx/evoagile_configs/blob/master/julia/.julia/config/startup.jl"><code>startup.jl</code></a> file for easy reuse. Because this file runs at every starting time for Julia, we can use generate function as following example.</p><pre><code class="language-julia hljs">julia&gt; genGithubRepo(&quot;ecoinfo&quot;, &quot;JuliaStudy.jl&quot;)
-</code></pre><h2 id="Use-[GitHub-CLI](https://cli.github.com/)-to-create-repository-in-GitHub"><a class="docs-heading-anchor" href="#Use-[GitHub-CLI](https://cli.github.com/)-to-create-repository-in-GitHub">Use <a href="https://cli.github.com/">GitHub-CLI</a> to create repository in GitHub</a><a id="Use-[GitHub-CLI](https://cli.github.com/)-to-create-repository-in-GitHub-1"></a><a class="docs-heading-anchor-permalink" href="#Use-[GitHub-CLI](https://cli.github.com/)-to-create-repository-in-GitHub" title="Permalink"></a></h2><h2 id="Playing-with-REPL"><a class="docs-heading-anchor" href="#Playing-with-REPL">Playing with REPL</a><a id="Playing-with-REPL-1"></a><a class="docs-heading-anchor-permalink" href="#Playing-with-REPL" title="Permalink"></a></h2><h2 id="References"><a class="docs-heading-anchor" href="#References">References</a><a id="References-1"></a><a class="docs-heading-anchor-permalink" href="#References" title="Permalink"></a></h2><ol><li><a href="https://github.com/erdosxx/evoagile_configs">Github repo: evoagile_configs</a></li><li><a href="https://github.com/erdosxx/Neovim-from-scratch/tree/27_Julia_REPL">Github repo: Neovim-from-scratch/27-Julia-REPL</a></li><li><a href="https://www.juliabloggers.com/setting-up-julia-lsp-for-neovim/">Setting up Julia lsp for Neovim</a></li><li><a href="https://discourse.julialang.org/t/neovim-languageserver-jl/37286/63?page=5">discourse: Neovim + LanguageServer.jl</a></li></ol></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../../">« Home</a><a class="docs-footer-nextpage" href="../ch1_why_julia/">Why Julia? »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.25 on <span class="colophon-date" title="Saturday 29 July 2023 15:26">Saturday 29 July 2023</span>. Using Julia version 1.9.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+  15 dependencies successfully precompiled in 58 seconds. 21 already precompiled.</code></pre><p>To format your code, you can find related commends in <a href="https://github.com/erdosxx/Neovim-from-scratch/blob/27_Julia_REPL/lua/user/keymaps.lua">keymaps.lua</a> file. Type <code>:Format</code> in command or <code>&lt;space key&gt;f</code>(when <code>&lt;localleader&gt;</code> = <code>&lt;space key&gt;</code>) in normal mode, whole code in the file will be formatted.</p><div class="admonition is-info"><header class="admonition-header">Info</header><div class="admonition-body"><p>To get supported to Julia formatting, we can also try to use <a href="https://github.com/kdheepak/JuliaFormatter.vim">JuliaFormatter.vim</a>. This only supports formatting and no other LSP function but range format supporting in visual mode and definition of format option in configuration file are possible. This uses <a href="https://github.com/domluna/JuliaFormatter.jl">JuliaFormatter</a> independently. However, I found that when we use Julia LSP with this package, LSP was crashed occasionally. So I decided to uninstall it.</p></div></div><p>To define format parameters in Julia code is not easy in <a href="https://github.com/erdosxx/Neovim-from-scratch/blob/27_Julia_REPL/lua/user/lsp/settings/julials.lua">LSP configuration file</a>. The solution is use <a href="https://domluna.github.io/JuliaFormatter.jl/dev/config/">&#39;.JuliaFormatter.toml&#39;</a> file in every repo. So it can be convenient to add this file to PkgTemplates. (See below section)</p><div class="admonition is-info"><header class="admonition-header">Info</header><div class="admonition-body"><p>The useful configuration to format is</p><ul><li>style = &quot;sciml&quot;</li><li>indent = 2</li><li>margin = 79</li></ul><p>For style options, see <a href="https://domluna.github.io/JuliaFormatter.jl/dev/yas_style/">YAS</a>, <a href="https://domluna.github.io/JuliaFormatter.jl/dev/blue_style/">Blue</a>, and <a href="https://domluna.github.io/JuliaFormatter.jl/dev/sciml_style/">SciML</a>.</p></div></div><h2 id="Use-[PkgTemplates](https://github.com/JuliaCI/PkgTemplates.jl)-to-generate-repository"><a class="docs-heading-anchor" href="#Use-[PkgTemplates](https://github.com/JuliaCI/PkgTemplates.jl)-to-generate-repository">Use <a href="https://github.com/JuliaCI/PkgTemplates.jl">PkgTemplates</a> to generate repository</a><a id="Use-[PkgTemplates](https://github.com/JuliaCI/PkgTemplates.jl)-to-generate-repository-1"></a><a class="docs-heading-anchor-permalink" href="#Use-[PkgTemplates](https://github.com/JuliaCI/PkgTemplates.jl)-to-generate-repository" title="Permalink"></a></h2><p>PkgTemplates simplifies the process of setting up the initial file structure for a new repository, specifically <a href="https://en.wikipedia.org/wiki/Continuous_integration">CI</a> integration with GitHub actions. To use PkgTemplates, we recommend to install it in system default Julia environment, for example, <code>v1.9</code> as following.</p><pre><code class="language-julia hljs">using Pkg
+Pkg.activate()   # activate system default env
+Pkg.add(&quot;PkgTemplates&quot;)</code></pre><p>After installing it, we need to setup the template. It would be convenient to keep it in the <a href="https://github.com/erdosxx/evoagile_configs/blob/master/julia/.julia/config/startup.jl"><code>startup.jl</code></a> file for easy reuse. Because this file runs every time Julia starts up, we can utilize the generate function as shown in the following example.</p><pre><code class="language- hljs">using Pkg                # hide
+Pkg.add(&quot;PkgTemplates&quot;)  # hide
+using PkgTemplates       # hide
+using LibGit2            # hide
+
+function genGithubRepo(userName::String, repoName::String)
+  templateGithub = Template(;
+    user = userName,
+    dir = &quot;~/localgit&quot;,
+    julia = v&quot;1&quot;,  # for [compat] section in Project.toml
+    plugins = [
+      # Use semantic version, See Julia Pattern book page 43.
+      ProjectFile(; version = v&quot;1.0.0-DEV&quot;),
+      License(; name = &quot;MIT&quot;, path = nothing, destination = &quot;LICENSE&quot;),
+      Git(;
+        branch = LibGit2.getconfig(&quot;init.defaultBranch&quot;, &quot;master&quot;),
+        ssh = true,
+        jl = true,
+        manifest = false),
+      GitHubActions(;
+        destination = &quot;CI.yml&quot;,
+        linux = true,
+        osx = false,
+        windows = false,
+        x64 = true,
+        x86 = false,
+        coverage = true,
+        extra_versions = [&quot;1.8&quot;, &quot;1.9&quot;, &quot;nightly&quot;]),
+      CompatHelper(; destination = &quot;CompatHelper.yml&quot;, cron = &quot;0 0 * * *&quot;),
+      TagBot(;
+        destination = &quot;TagBot.yml&quot;,
+        trigger = &quot;JuliaTagBot&quot;,
+        token = Secret(&quot;GITHUB_TOKEN&quot;),
+        ssh = Secret(&quot;DOCUMENTER_KEY&quot;),
+        ssh_password = nothing,
+        changelog = nothing,
+        changelog_ignore = nothing,
+        gpg = nothing,
+        gpg_password = nothing,
+        registry = nothing,
+        branches = nothing,
+        dispatch = nothing,
+        dispatch_delay = nothing),
+      Codecov(),
+      Documenter{GitHubActions}(logo = Logo(;
+        light = homedir() * &quot;/.config/logo/logo.png&quot;,
+        dark = homedir() * &quot;/.config/logo/logo-dark.png&quot;)),
+      Dependabot(),
+    ])
+  generate(templateGithub, repoName)
+end
+
+genGithubRepo(&quot;ecoinfo&quot;, &quot;JuliaStudy.jl&quot;)
+</code></pre><h2 id="Use-[GitHub-CLI](https://cli.github.com/)-to-create-repository-in-GitHub"><a class="docs-heading-anchor" href="#Use-[GitHub-CLI](https://cli.github.com/)-to-create-repository-in-GitHub">Use <a href="https://cli.github.com/">GitHub-CLI</a> to create repository in GitHub</a><a id="Use-[GitHub-CLI](https://cli.github.com/)-to-create-repository-in-GitHub-1"></a><a class="docs-heading-anchor-permalink" href="#Use-[GitHub-CLI](https://cli.github.com/)-to-create-repository-in-GitHub" title="Permalink"></a></h2><h2 id="Playing-with-REPL"><a class="docs-heading-anchor" href="#Playing-with-REPL">Playing with REPL</a><a id="Playing-with-REPL-1"></a><a class="docs-heading-anchor-permalink" href="#Playing-with-REPL" title="Permalink"></a></h2><h2 id="References"><a class="docs-heading-anchor" href="#References">References</a><a id="References-1"></a><a class="docs-heading-anchor-permalink" href="#References" title="Permalink"></a></h2><ol><li><a href="https://github.com/erdosxx/evoagile_configs">Github repo: evoagile_configs</a></li><li><a href="https://github.com/erdosxx/Neovim-from-scratch/tree/27_Julia_REPL">Github repo: Neovim-from-scratch/27-Julia-REPL</a></li><li><a href="https://www.juliabloggers.com/setting-up-julia-lsp-for-neovim/">Setting up Julia lsp for Neovim</a></li><li><a href="https://discourse.julialang.org/t/neovim-languageserver-jl/37286/63?page=5">discourse: Neovim + LanguageServer.jl</a></li></ol></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../../">« Home</a><a class="docs-footer-nextpage" href="../ch1_why_julia/">Why Julia? »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.25 on <span class="colophon-date" title="Saturday 29 July 2023 23:52">Saturday 29 July 2023</span>. Using Julia version 1.9.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

@@ -1,5 +1,5 @@
 module JuliaStudy
 
-# Write your package code here.
+include("JuliaPatterns/JuliaPatterns.jl")
 
 end

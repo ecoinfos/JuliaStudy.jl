@@ -110,7 +110,7 @@ PkgTemplates. (See below section)
 !!! tip
 
     The shortcut keys to use LSP is defined in
-    `[handler.lua](https://github.com/erdosxx/Neovim-from-scratch/blob/master/lua/user/lsp/handlers.lua)`
+    [`handler.lua`](https://github.com/erdosxx/Neovim-from-scratch/blob/master/lua/user/lsp/handlers.lua)
     Some useful keys are
     - `gl`: read diagnostics messages
     - `gd`: Go the the definition
@@ -284,9 +284,16 @@ Once REPL is launched in another terminal and open a Julia file,
 we can connect the code to REPL by `:JuliaREPLConnect` or `<localleader>o`.
 To send some codes to REPL,
 
-- `<localleader>u`: In normal mode, send the cursor line to REPL.
+- `<localleader>u` In normal mode, send the cursor line to REPL.
   In visual mode, send the range to REPL.
-- `<localleader>/`: Format and send code whose block has same indented level.
+- `<localleader>/` Format and send code whose block has same indented level.
+
+## To do or practice
+
+1. Add '.JuliaFormatter.toml' file to `PkgTemplates` to define format option.
+2. Try to understand GitHub security model with secret keys.
+   See [SSH Deploy Keys Walkthrough](https://documenter.juliadocs.org/stable/man/hosting/walkthrough/#Adding-the-Public-Key-to-GitHub)
+   and [security hardening for github actions](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions).
 
 ## References
 

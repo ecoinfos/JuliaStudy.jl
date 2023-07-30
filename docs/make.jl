@@ -18,9 +18,9 @@ makedocs(;
     assets = String[]),
   pages = [
     "Home" => "index.md",
+    "Setup Environments" => "ch0_setup_julia_env.md",
     "Julia as a Second Language" =>
       Any[
-        "Setup Environments" => "ch0_setup_julia_env.md",
         "Why Julia?" => "Julia2ndLang/ch1_why_julia.md",
         "Setup Packages" => "Julia2ndLang/ch16_organizing_and_modularizing_your_code.md",
         "Julia as a Calculator" => "Julia2ndLang/ch2_julia_as_a_calculator.md",

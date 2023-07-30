@@ -107,6 +107,18 @@ PkgTemplates. (See below section)
     [Blue](https://domluna.github.io/JuliaFormatter.jl/dev/blue_style/), and
     [SciML](https://domluna.github.io/JuliaFormatter.jl/dev/sciml_style/).
 
+!!! tip
+
+    The shortcut keys to use LSP is defined in
+    `[handler.lua](https://github.com/erdosxx/Neovim-from-scratch/blob/master/lua/user/lsp/handlers.lua)`
+    Some useful keys are
+    - `gl`: read diagnostics messages
+    - `gd`: Go the the definition
+    - `K`: Get help for functions, variables and so on.
+    - `gr`: Get references or usages of functions. Looks only supported in the same file.
+    - `<leader>la`: Add code actions. For example add docstrings after definding function.
+    - `<leader>lr`: rename function. Looks only supported in the same file.
+
 ## Use [PkgTemplates](https://github.com/JuliaCI/PkgTemplates.jl) to generate repository
 
 PkgTemplates simplifies the process of setting up the initial file structure for
@@ -248,7 +260,33 @@ $ cd localgit/JuliaStudy
 $ git push origin HEAD --tags
 ```
 
-## Playing with REPL
+## Playing with [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)
+
+To setup REPL, [`andreypopp/julia-repl-vim`](https://github.com/andreypopp/julia-repl-vim) is installed in
+[`newvim`](https://github.com/erdosxx/Neovim-from-scratch/blob/27_Julia_REPL/lua/user/plugins.lua)
+(already installed in Neovim-from-scratch)
+and Julia default environment as following.
+
+```shell
+$ julia    # install in default env.
+julia> using Pkg; Pkg.add("url="https://github.com/andreypopp/julia-repl-vim"")
+```
+
+Because the [`startup.jl`](https://github.com/erdosxx/evoagile_configs/blob/master/julia/.julia/config/startup.jl)
+file contains required startup commands, we can use it without manual setup.
+
+```julia
+using REPLVim
+@async REPLVim.serve()
+```
+
+Once REPL is launched in another terminal and open a Julia file,
+we can connect the code to REPL by `:JuliaREPLConnect` or `<localleader>o`.
+To send some codes to REPL,
+
+- `<localleader>u`: In normal mode, send the cursor line to REPL.
+  In visual mode, send the range to REPL.
+- `<localleader>/`: Format and send code whose block has same indented level.
 
 ## References
 

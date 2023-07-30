@@ -128,12 +128,14 @@ file for easy reuse.
 Because this file runs every time Julia starts up, we can utilize the generate
 function as shown in the following example.
 
-```@example
-using Pkg                # hide
-Pkg.add("PkgTemplates")  # hide
-using PkgTemplates       # hide
-using LibGit2            # hide
+```@setup genGithubRepo
+using Pkg
+Pkg.add("PkgTemplates")
+using PkgTemplates
+using LibGit2
+```
 
+```@example genGithubRepo
 function genGithubRepo(userName::String, repoName::String)
   templateGithub = Template(;
     user = userName,
@@ -182,7 +184,6 @@ function genGithubRepo(userName::String, repoName::String)
 end
 
 genGithubRepo("ecoinfo", "JuliaStudy.jl")
-
 ```
 
 ## Use [GitHub-CLI](https://cli.github.com/) to create repository in GitHub

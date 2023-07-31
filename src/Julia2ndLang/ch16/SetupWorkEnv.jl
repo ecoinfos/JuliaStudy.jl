@@ -19,6 +19,8 @@ Pkg.activate(HOBBY_DIR)
 Pkg.add("CairoMakie")
 Pkg.add("ElectronDisplay")
 run(`cat $(HOBBY_DIR)/Project.toml`)
+# or this command to check UUID
+Pkg.project()
 Pkg.rm("CairoMakie")
 # uuid do not contain version info.
 Pkg.add(name="CairoMakie", uuid="13f3f980-e62b-5c42-98c6-ff1f3baf88f0")

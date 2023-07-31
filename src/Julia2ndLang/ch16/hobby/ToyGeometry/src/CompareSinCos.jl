@@ -1,4 +1,5 @@
-using ToyGeometry, CairoMakie, ElectronDisplay
+using CairoMakie, ElectronDisplay
+using ToyGeometry
 
 ToyGeometry.sphere_volume(4)
 ToyGeometry.sine(π/2)

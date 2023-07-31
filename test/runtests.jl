@@ -1,6 +1,9 @@
 using Test
 
-tests = ["JuliaPatterns/ch2"]
+tests = [
+  "JuliaPatterns/ch2",
+  "Julia2ndLang/ch16",
+]
 if !isempty(ARGS)
   tests = ARGS  # Set list to same as command line args
 end

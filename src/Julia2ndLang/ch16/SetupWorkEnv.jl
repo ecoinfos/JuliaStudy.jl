@@ -46,11 +46,3 @@ Pkg.status()
 # using ToyGeometry  # should have error
 Pkg.develop(PackageSpec(path = "./ToyGeometry"))
 Pkg.status()
-
-using ToyGeometry
-ToyGeometry.sphere_volume(4)
-ToyGeometry.sine(π/2)
-sin(π/2)
-sine(π/2)
-
-

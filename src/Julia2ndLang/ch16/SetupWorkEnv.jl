@@ -27,7 +27,30 @@ Pkg.status()
 Pkg.rm("Dates")
 Pkg.status()
 
+pwd()
+cd("src/Julia2ndLang/ch16/hobby")
+pwd()
+Pkg.generate("ToyGeometry")
+run(`cat ToyGeometry/Project.toml`)
+Pkg.activate("ToyGeometry")
+Pkg.add("Dates")
+Pkg.add("Base64")
+Pkg.status()
+run(`cat ToyGeometry/Project.toml`)
+run(`cat ToyGeometry/Manifest.toml`)
 
+Pkg.activate(".")   # hobby
+Pkg.add("OhMyREPL")
+Pkg.add("Revise")
+Pkg.status()
+# using ToyGeometry  # should have error
+Pkg.develop(PackageSpec(path = "./ToyGeometry"))
+Pkg.status()
 
+using ToyGeometry
+ToyGeometry.sphere_volume(4)
+ToyGeometry.sine(π/2)
+sin(π/2)
+sine(π/2)
 
 

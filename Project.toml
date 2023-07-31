@@ -3,9 +3,6 @@ uuid = "d399ac94-384f-4751-bea9-3a8f3e663572"
 authors = ["Norel <norel.evoagile@gmail.com> and contributors"]
 version = "1.0.0-DEV"
 
-[deps]
-Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
-
 [compat]
 julia = "1"
 

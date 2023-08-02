@@ -4,30 +4,34 @@ using Documenter
 DocMeta.setdocmeta!(JuliaStudy,
   :DocTestSetup,
   :(using JuliaStudy);
-  recursive = true)
+  recursive=true)
 
 makedocs(;
-  modules = [JuliaStudy],
-  authors = "Norel <norel.evoagile@gmail.com> and contributors",
-  repo = "https://github.com/ecoinfos/JuliaStudy.jl/blob/{commit}{path}#{line}",
-  sitename = "JuliaStudy.jl",
-  format = Documenter.HTML(;
-    prettyurls = get(ENV, "CI", "false") == "true",
-    canonical = "https://ecoinfos.github.io/JuliaStudy.jl",
-    edit_link = "master",
-    assets = String[]),
-  pages = [
+  modules=[JuliaStudy],
+  authors="Norel <norel.evoagile@gmail.com> and contributors",
+  repo="https://github.com/ecoinfos/JuliaStudy.jl/blob/{commit}{path}#{line}",
+  sitename="JuliaStudy.jl",
+  format=Documenter.HTML(;
+    prettyurls=get(ENV, "CI", "false") == "true",
+    canonical="https://ecoinfos.github.io/JuliaStudy.jl",
+    edit_link="master",
+    assets=String[]),
+  pages=[
     "Home" => "index.md",
-    "Setup Environments" => "ch0_setup_julia_env.md",
+    "Setup environments" => "ch0_setup_julia_env.md",
     "Julia as a Second Language" =>
       Any[
-        "Why Julia?" => "Julia2ndLang/ch1_why_julia.md",
-        "Setup Packages" => "Julia2ndLang/ch16_organizing_and_modularizing_your_code.md",
-        "Julia as a Calculator" => "Julia2ndLang/ch2_julia_as_a_calculator.md",
+        "Why Julia?"=>"Julia2ndLang/ch1_why_julia.md",
+        "Organizing and modularizing your code"=>"Julia2ndLang/ch16_organizing_and_modularizing_your_code.md",
+        "Julia as a calculator"=>"Julia2ndLang/ch2_julia_as_a_calculator.md",
+      ],
+    "Hands-On Design Patterns and Best Practices with Julia" =>
+      Any[
+        "Modules, Packages, and Data Type Concepts"=>"JuliaPatterns/ch2_modules_packages_and_data_type_concepts.md",
       ],
   ]
 )
 
 deploydocs(;
-  repo = "github.com/ecoinfos/JuliaStudy.jl",
-  devbranch = "master")
+  repo="github.com/ecoinfos/JuliaStudy.jl",
+  devbranch="master")

@@ -115,3 +115,60 @@ end
   @test !(Holding{Float64} <: Holding{Int})
   @test !(Holding{Int} <: Holding{Float64})
 end
+
+@testset "Conversion between data types" begin
+  @test Float64(1 // 3) ≈ convert(Float64, 1 // 3)
+  @test convert(Rational, convert(Float64, 1 // 3)) != 1 // 3
+  @test convert(Int64, convert(Float64, 2^53 + 1)) != 2^53 + 1
+  @test convert(Int64, convert(BigFloat, 2^53 + 1)) == 2^53 + 1
+
+  x = rand(3)
+  x[1] = 1
+  @test x[1] == 1.0
+  @test x[1] isa Float64
+  @test !(x[1] isa Int)
+
+  mutable struct Foo
+    x::Float64
+  end
+  foo = Foo(1.0)
+  foo.x = 2
+  @test foo.x isa Float64
+
+  struct Bar
+    x::Float64
+    Bar(v) = new(v)
+  end
+  bar = Bar(1)
+  @test bar.x isa Float64
+
+  function roo()
+    local x::Float64
+    x = 1
+    typeof(x)
+  end
+  @test roo() == Float64
+
+  function goo()::Float64
+    return 1
+  end
+  @test goo() == 1.0
+
+  # Not work
+  # ccall((:exp, "libc"), Float64, (Float64,), 2)
+
+  # print(subtypeTreeStr(AbstractFloat, 2))
+  twice(x::AbstractFloat) = 2x
+  @test twice(1.0) == 2.0
+  # BigFloat("1.5e1234")
+  @test_throws MethodError twice(2)
+
+  twice_general(x) = 2x
+  @test twice_general(1.0) == 2.0
+  @test twice_general(1) == 2
+
+  twice_number(x::Number) = 2x
+  @test twice_number(1.0) == 2.0
+  @test twice_number(1) == 2
+  @test twice_number(2 // 3) == 4 // 3
+end

@@ -111,7 +111,7 @@ end
 
 Display the entire type hierarchy starting from the specified `roottype`
 """
-function subtypetree(roottype::Any, level::Int = 1, indent::Int = 4)
+function subtypetree(roottype::Type, level::Int = 1, indent::Int = 4)
   level == 1 && println(roottype)
   for s in subtypes(roottype)
     println(join(fill(" ", level * indent)) * string(s))
@@ -126,7 +126,7 @@ Return all sub types with tree stucture.
 
 This function is improved version of `subtypetree` for easy testing.
 """
-function subtypeTreeStr(inType = nothing, indent::Int = 4)::String
+function subtypeTreeStr(inType::Union{Type, Nothing} = nothing, indent::Int = 4)::String
   outStr = ""
 
   if inType === nothing
@@ -142,7 +142,7 @@ end
 
 Generate substring for recursive call from subtypeTreeStr.
 """
-function genSubStr(inType, indent::Int, level::Int, inStr::String)::String
+function genSubStr(inType::Type, indent::Int, level::Int, inStr::String)::String
   if level == 0
     outStr = string(inType)
   else

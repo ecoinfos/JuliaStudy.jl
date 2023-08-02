@@ -66,7 +66,7 @@ end
 apple = Stock("AAPL", "Apple, Inc.")
 ibm = Stock("IBM", "IBM")
 # mutable fixture
-get_mu_apple() = muStock("AAPL", "Apple, Inc.")  
+get_mu_apple() = muStock("AAPL", "Apple, Inc.")
 
 @testset "Desing Concreate Types" begin
   @test describe(apple) == "AAPL(Apple, Inc.)"
@@ -87,4 +87,31 @@ get_mu_apple() = muStock("AAPL", "Apple, Inc.")
   present = BasketOfThings(things, "Anniversary gift for my wife")
   new_present = newBasketOfThings(things, "Anniversary gift for my wife")
   @test present.things == new_present.things
+end
+
+@testset "Working with type operator" begin
+  @test 1 isa Int
+  @test !(1 isa Float64)
+  @test 1 isa Real
+  @test Int <: Real
+end
+
+@testset "Working with parametric composite types" begin
+  holding1 = StockHolding(apple, 100)
+  holding2 = StockHolding(apple, 100.00)
+  holding3 = StockHolding(apple, 100 // 3)
+  # Not defined for String
+  @test_throws MethodError StockHolding(apple, "100")
+
+  holding4 = StockHolding2(apple, 100, 180.00, 18000.00)
+  # Not defined for different type of price and marketvalue.
+  @test_throws MethodError StockHolding2(apple, 100, 180, 18000.00)
+
+  @test StockHolding3{Int64, Float64} <: Holding{Float64}
+  certificate_in_the_safe = StockHolding3(apple, 100, 180.00, 18000.00)
+  @test certificate_in_the_safe isa Holding{Float64}
+  @test Holding{Float64} <: Holding
+  @test Holding{Int} <: Holding
+  @test !(Holding{Float64} <: Holding{Int})
+  @test !(Holding{Int} <: Holding{Float64})
 end

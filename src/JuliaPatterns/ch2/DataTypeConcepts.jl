@@ -4,7 +4,8 @@ using InteractiveUtils
 
 export Asset, Property, Investment, Cash
 export House, Apartment, FixedIncome, Equity
-export Stock, muStock
+export Stock, muStock, StockHolding
+export Holding, StockHolding2, StockHolding3, CashHolding
 export Art, Painting
 export subtypetree, subtypeTreeStr
 export BasketOfStocks, BasketOfThings, newBasketOfThings
@@ -31,6 +32,33 @@ end
 mutable struct muStock <: Equity
   symbol::String
   name::String
+end
+
+struct StockHolding{T <: Real}
+  stock::Stock
+  queantity::T
+end
+
+struct StockHolding2{T <: Real, P <: AbstractFloat}
+  stock::Stock
+  quantity::T
+  price::P
+  marketvalue::P
+end
+
+abstract type Holding{P} end
+
+struct StockHolding3{T, P} <: Holding{P}
+  stock::Stock
+  quantity::T
+  price::P
+  marketvalue::P
+end
+
+struct CashHolding{P} <: Holding{P}
+  currency::String
+  amount::P
+  marketvalue::P
 end
 
 abstract type Art end

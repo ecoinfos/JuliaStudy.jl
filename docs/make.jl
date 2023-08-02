@@ -26,7 +26,7 @@ makedocs(;
         "Julia as a calculator"=>"Julia2ndLang/ch2_julia_as_a_calculator.md",
         "Control flow"=>"Julia2ndLang/ch3_control_flow.md",
         "Julias as a spreadsheet"=>"Julia2ndLang/ch4_julia_as_a_spreadsheet.md",
-        "Working with test"=>"Julia2ndLang/ch5_working_with_test.md",
+        "Working with test"=>"Julia2ndLang/ch5_working_with_text.md",
         "Storing data in dictionaries"=>"Julia2ndLang/ch6_storing_data_in_dictionaries.md",
         "Understanding types"=>"Julia2ndLang/ch7_understanding_types.md",
       ],

@@ -1,4 +1,0 @@
-using JuliaStudy.JuliaPatterns
-using JuliaStudy.JuliaPatterns.Calculator
-using JuliaStudy.JuliaPatterns.DataTypeConcepts
-using InteractiveUtils

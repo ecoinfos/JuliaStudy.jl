@@ -24,6 +24,11 @@ makedocs(;
         "Why Julia?"=>"Julia2ndLang/ch1_why_julia.md",
         "Organizing and modularizing your code"=>"Julia2ndLang/ch16_organizing_and_modularizing_your_code.md",
         "Julia as a calculator"=>"Julia2ndLang/ch2_julia_as_a_calculator.md",
+        "Control flow"=>"Julia2ndLang/ch3_control_flow.md",
+        "Julias as a spreadsheet"=>"Julia2ndLang/ch4_julia_as_a_spreadsheet.md",
+        "Working with test"=>"Julia2ndLang/ch5_working_with_test.md",
+        "Storing data in dictionaries"=>"Julia2ndLang/ch6_storing_data_in_dictionaries.md",
+        "Understanding types"=>"Julia2ndLang/ch7_understanding_types.md",
       ],
     "Hands-On Design Patterns and Best Practices with Julia" =>
       Any[

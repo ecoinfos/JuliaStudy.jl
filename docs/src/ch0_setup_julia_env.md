@@ -269,7 +269,7 @@ and Julia default environment as following.
 
 ```shell
 $ julia    # install in default env.
-julia> using Pkg; Pkg.add("url="https://github.com/andreypopp/julia-repl-vim"")
+julia> using Pkg; Pkg.add(url="https://github.com/andreypopp/julia-repl-vim")
 ```
 
 Because the [`startup.jl`](https://github.com/erdosxx/evoagile_configs/blob/master/julia/.julia/config/startup.jl)

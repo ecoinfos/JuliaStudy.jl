@@ -3,6 +3,7 @@ using Test
 tests = [
   "JuliaPatterns/ch2",
   "Julia2ndLang/ch16",
+  "Julia2ndLang/ch7",
 ]
 if !isempty(ARGS)
   tests = ARGS  # Set list to same as command line args

@@ -30,7 +30,7 @@ using Random
 
   # print(subtypeTreeStr(Number, 2))
   # Julia 1.0 or nightly will be failed.
-  @test subtypes(Number)==Any[Complex, Real] skip=true
+  # @test subtypes(Number)==Any[Complex, Real] skip=true
   @test subtypes(Real) ==
         Any[AbstractFloat, AbstractIrrational, Integer, Rational]
   @test subtypes(Integer) == Any[Bool, Signed, Unsigned]

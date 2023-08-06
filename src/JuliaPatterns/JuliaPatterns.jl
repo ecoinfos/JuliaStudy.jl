@@ -2,5 +2,8 @@ module JuliaPatterns
 
 include("ch2/Calculator.jl")
 include("ch2/DataTypeConcepts.jl")
+include("ch3/SpaceWar.jl")
+include("ch3/Vehicle.jl")
+include("ch3/FighterJets.jl")
 
 end

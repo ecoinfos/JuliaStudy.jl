@@ -2,6 +2,7 @@ using Test
 
 tests = [
   "JuliaPatterns/ch2",
+  "JuliaPatterns/ch3",
   "Julia2ndLang/ch16",
   "Julia2ndLang/ch7",
 ]

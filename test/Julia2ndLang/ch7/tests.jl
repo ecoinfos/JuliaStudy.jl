@@ -33,7 +33,8 @@ using Random
   @test subtypes(Number)==Any[Complex, Real] skip=true
   @test subtypes(Real) ==
         Any[AbstractFloat, AbstractIrrational, Integer, Rational]
-  @test subtypes(Integer) == Any[Bool, Signed, Unsigned]
+  # Folowing can be failed after install DataFrames
+  # @test subtypes(Integer) == Any[Bool, Signed, Unsigned]
   T = typeof(42)
   @test T == Int64
   T = supertype(T)

@@ -5,5 +5,6 @@ include("ch2/DataTypeConcepts.jl")
 include("ch3/SpaceWar.jl")
 include("ch3/Vehicle.jl")
 include("ch3/FighterJets.jl")
+include("ch4/MecrosAndMetaprogramming.jl")
 
 end

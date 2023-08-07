@@ -282,11 +282,41 @@ using REPLVim
 
 Once REPL is launched in another terminal and open a Julia file,
 we can connect the code to REPL by `:JuliaREPLConnect` or `<localleader>o`.
-To send some codes to REPL,
 
-- `<localleader>u` In normal mode, send the cursor line to REPL.
-  In visual mode, send the range to REPL.
-- `<localleader>/` Format and send code whose block has same indented level.
+- '<localleader>o': Connect current file to REPL. You need to connect every
+  files to REPL if you want to send them.
+- `<localleader>u`: In normal mode, send the cursor line to REPL.
+  In visual mode, send all **lines** in the range to REPL.
+- `<localleader>k`: In visual mode, send exact range to REPL.
+  This is useful if you want to send a part of code in a line to REPL.
+- `<localleader>/`: Format and send code whose block has same indented level.
+
+!!! tip
+
+    Above key mappings are same for Python REPL. So, you can use them to connect Qt Console to build REPL.
+
+## Coding with snippets
+
+To make coding more easy, a few snippets are defined in
+[`julia.lua`](https://github.com/erdosxx/Neovim-from-scratch/blob/27_Julia_REPL/lua/user/LuaSnip/julia.lua). To add and understand the definition of them
+you can refer to offical [LuaSnip](https://github.com/L3MON4D3/LuaSnip) site.
+Some frequently used snippets are
+
+- `df` : Define function. Type `df` at the beginning of a line,
+  this automatically generates `function end` block.
+  There are three fields to input and when finish one,
+  you can shift to next field by [`<F2>`](https://github.com/erdosxx/Neovim-from-scratch/blob/27_Julia_REPL/ftplugin/julia.lua)
+  key with ignoring any possible suggestions.
+- `ds` : Define structure. Type `ds` at the beginning of a line,
+  this generate `struct end` block. You also can find `->` mark in the screen
+  and that means there are choices to select.
+  Type `<Ctrol + h>` or `<Ctrol + l>` you can change
+  the selection between `struct` and `mutable struct`.
+  After selection one, type `<F2>` to go next field.
+- `@` : This translate to `::` after typing variable name.
+  For example, `foo@` changed to `foo::` to define type.
+
+For more snippets, please refer to [`julia.lua`](https://github.com/erdosxx/Neovim-from-scratch/blob/27_Julia_REPL/lua/user/LuaSnip/julia.lua).
 
 ## To do or practice
 

@@ -68,7 +68,7 @@ end
 # Forward assessors and functions
 @forward SavingsAccount.acct account_number, balance, date_opened
 @forward SavingsAccount.acct deposit!, withdraw!
-function transfer!(from::SavingsAccount, to::SavingsAccount, amount::Real)
+function transfer2!(from::SavingsAccount, to::SavingsAccount, amount::Real)
   transfer!(from.acct, to.acct, amount)
 end
 

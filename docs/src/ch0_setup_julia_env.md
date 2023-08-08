@@ -283,7 +283,7 @@ using REPLVim
 Once REPL is launched in another terminal and open a Julia file,
 we can connect the code to REPL by `:JuliaREPLConnect` or `<localleader>o`.
 
-- '<localleader>o': Connect current file to REPL. You need to connect every
+- `<localleader>o`: Connect current file to REPL. You need to connect every
   files to REPL if you want to send them.
 - `<localleader>u`: In normal mode, send the cursor line to REPL.
   In visual mode, send all **lines** in the range to REPL.

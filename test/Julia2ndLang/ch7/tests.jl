@@ -31,8 +31,9 @@ using Random
   # print(subtypeTreeStr(Number, 2))
   # Julia 1.0 or nightly will be failed.
   @test subtypes(Number)==Any[Complex, Real] skip=true
-  @test subtypes(Real) ==
-        Any[AbstractFloat, AbstractIrrational, Integer, Rational]
+  # Can be failed after install addtional packages
+  # @test subtypes(Real) ==
+  #       Any[AbstractFloat, AbstractIrrational, Integer, Rational]
   # Folowing can be failed after install DataFrames
   # @test subtypes(Integer) == Any[Bool, Signed, Unsigned]
   T = typeof(42)

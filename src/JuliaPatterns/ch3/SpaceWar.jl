@@ -107,7 +107,7 @@ function clean_up_galaxy(asteroids, spaceships)
 end
 
 # Random healthyness function for tsting
-healthy(spaceship) = rand(Bool)
+healthy(::Widget) = rand(Bool)
 
 function fire(f::Function, spaceship::Widget)
   if healthy(spaceship)
@@ -137,7 +137,7 @@ abstract type Thing end
 # Funtions that are applied for all Thing's
 position(t::Thing) = t.position
 size(t::Thing) = t.size
-shape(t::Thing) = :unknown
+shape(::Thing) = :unknown
 
 # Type of weapons
 @enum Weapon Laser Missile
@@ -148,7 +148,7 @@ struct Spaceship <: Thing
   weapon::Weapon
 end
 
-shape(s::Spaceship) = :saucer
+shape(::Spaceship) = :saucer
 
 struct Asteroid <: Thing
   position::Position
@@ -182,22 +182,22 @@ function collide(A::Thing, B::Thing)
   return overlap(rectA, rectB)
 end
 
-function collide(A::Spaceship, B::Spaceship)
+function collide(::Spaceship, ::Spaceship)
   println("Checking collision of spaceship vs. spaceship")
   return true   # just a test
 end
 
-function collide(A::Asteroid, B::Thing)
+function collide(::Asteroid, ::Thing)
   println("Checking collision of asteroid vs. thing")
   return true
 end
 
-function collide(A::Thing, B::Asteroid)
+function collide(::Thing, ::Asteroid)
   println("Checking collision of thing vs. asteroid")
   return false
 end
 
-function collide(A::Asteroid, B::Asteroid)
+function collide(::Asteroid, ::Asteroid)
   println("Checking collision of asteroid vs. asteroid")
   return true   # just a test
 end
@@ -246,6 +246,6 @@ function group_same_things(A::T, B::T) where {T <: Thing}
   println("Grouped ", A, " and ", B)
 end
 
-eltype(things::AbstractVector{T}) where {T <: Thing} = T
+eltype(::AbstractVector{T}) where {T <: Thing} = T
 
 end

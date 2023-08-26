@@ -9,5 +9,9 @@ include("ch4/MecrosAndMetaprogramming.jl")
 include("ch5/DelegationPattern.jl")
 include("ch5/HolyTraitsPattern.jl")
 include("ch5/ParametricTypePattern.jl")
+include("ch6/GlobalConstantPattern.jl")
+include("ch6/StructOfArraysPattern.jl")
+include("ch6/SharedArrayPattern.jl")
+include("ch6/MemorizationPattern.jl")
 
 end

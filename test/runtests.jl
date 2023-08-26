@@ -5,6 +5,7 @@ tests = [
   "JuliaPatterns/ch3",
   "JuliaPatterns/ch4",
   "JuliaPatterns/ch5",
+  "JuliaPatterns/ch6",
   "Julia2ndLang/ch16",
   "Julia2ndLang/ch7",
 ]

@@ -4,23 +4,32 @@ authors = ["Norel <norel.evoagile@gmail.com> and contributors"]
 version = "1.0.0-DEV"
 
 [deps]
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+Caching = "68ad905a-5087-500a-aae7-0fd6acda2eb1"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 InteractiveUtils = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
 Lazy = "50d2b5c4-7a5e-59d5-8109-a42b560f39c0"
+Memoize = "c03570c3-d221-55d1-a50c-7939bbd78826"
 NamedDims = "356022a1-0364-5f58-8944-0da4b18d706f"
 OffsetArrays = "6fe1bfb0-de20-5000-8ca7-80f57d26f881"
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+SharedArrays = "1a1011a3-84de-559e-8e89-a11a2f7dc383"
 SimpleTraits = "699a6c99-e7fa-54fc-8d76-47d257e15c1d"
+Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
+StructArrays = "09ab397b-f2b6-538f-b94a-2f83cf4a842a"
 Unrolled = "9602ed7d-8fef-5bc8-8597-8f21381861e8"
 
 [compat]
-OffsetArrays = "1"
+DataFrames = "1"
 Lazy = "0.15"
 NamedDims = "1"
+OffsetArrays = "1"
 SimpleTraits = "0.9"
 Unrolled = "0.1"
-DataFrames = "1"
 julia = "1"
 
 [extras]

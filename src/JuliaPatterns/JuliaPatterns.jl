@@ -13,5 +13,6 @@ include("ch6/GlobalConstantPattern.jl")
 include("ch6/StructOfArraysPattern.jl")
 include("ch6/SharedArrayPattern.jl")
 include("ch6/MemorizationPattern.jl")
+include("ch6/BarrierFunctionPattern.jl")
 
 end

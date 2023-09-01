@@ -31,13 +31,13 @@ function generate_test_data(nfiles)
   end
 end
 
-@everywhere function locate_file2(index)
+function locate_file2(index)
   id = index - 1
   dir = string(id % 100)
   joinpath(dir, "sec$(id).dat")
 end
 
-@everywhere function read_val_file!(index, dest)
+function read_val_file!(index, dest)
   filename = locate_file2(index)
   (nstates, nattrs) = size(dest)[1:2]
   open(filename) do io

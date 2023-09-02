@@ -24,6 +24,7 @@ StructArrays = "09ab397b-f2b6-538f-b94a-2f83cf4a842a"
 Unrolled = "9602ed7d-8fef-5bc8-8597-8f21381861e8"
 
 [compat]
+Caching = "0.2"
 DataFrames = "1"
 Lazy = "0.15"
 NamedDims = "1"

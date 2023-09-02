@@ -29,6 +29,7 @@ Lazy = "0.15"
 NamedDims = "1"
 OffsetArrays = "1"
 SimpleTraits = "0.9"
+StatsBase = "0.34"
 Unrolled = "0.1"
 julia = "1"
 

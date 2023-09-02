@@ -24,12 +24,17 @@ StructArrays = "09ab397b-f2b6-538f-b94a-2f83cf4a842a"
 Unrolled = "9602ed7d-8fef-5bc8-8597-8f21381861e8"
 
 [compat]
+BenchmarkTools = "1"
+Caching = "0.2"
+CSV = "0.10"
 DataFrames = "1"
 Lazy = "0.15"
+Memoize = "0.4"
 NamedDims = "1"
 OffsetArrays = "1"
 SimpleTraits = "0.9"
 StructArrays = "0.6"
+StatsBase = "0.34"
 Unrolled = "0.1"
 julia = "1"
 

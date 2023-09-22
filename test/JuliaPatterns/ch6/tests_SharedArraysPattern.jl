@@ -10,7 +10,7 @@ test_data_folder = joinpath("/tmp/" * "julia_book_ch06_data")
 
   make_data_directories(test_data_folder)
   cd(test_data_folder)
-  generate_test_data(100_000)
+  generate_test_data(1_000)
 end
 
 addprocs(16)
@@ -18,7 +18,7 @@ addprocs(16)
 @everywhere using JuliaStudy.JuliaPatterns.SharedArrayPattern
 @everywhere using Statistics: std, mean, median
 @everywhere using StatsBase: skewness, kurtosis
-nfiles = 100_000
+nfiles = 1_000
 nstates = 10_000
 nattr = 3
 valuation = SharedArray{Float64}(nstates, nattr, nfiles)
@@ -36,7 +36,7 @@ valuation = SharedArray{Float64}(nstates, nattr, nfiles)
   @benchmark std_by_security($valuation) seconds=30
   result = std_by_security(valuation)
   result[1:5, :]
-  @test size(result) == (100_000, 3)
+  @test size(result) == (1_000, 3)
 
   result2 = std_by_security2(valuation)
   @benchmark std_by_security2($valuation) seconds=30

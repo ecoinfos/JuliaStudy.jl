@@ -14,5 +14,10 @@ include("ch6/StructOfArraysPattern.jl")
 include("ch6/SharedArrayPattern.jl")
 include("ch6/MemorizationPattern.jl")
 include("ch6/BarrierFunctionPattern.jl")
+include("ch7/MyPackage.jl")
+include("ch7/MyPackage2.jl")
+include("ch7/CalculatorCh7.jl")
+include("ch7/MortgageCh7.jl")
+include("ch7/KeywordDefinitionPattern.jl")
 
 end

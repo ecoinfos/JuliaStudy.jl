@@ -1,13 +1,14 @@
 using Test
 
 tests = [
+  "Julia2ndLang/ch16",
+  "Julia2ndLang/ch7",
   "JuliaPatterns/ch2",
   "JuliaPatterns/ch3",
   "JuliaPatterns/ch4",
   "JuliaPatterns/ch5",
   "JuliaPatterns/ch6",
-  "Julia2ndLang/ch16",
-  "Julia2ndLang/ch7",
+  "JuliaPatterns/ch7",
 ]
 if !isempty(ARGS)
   tests = ARGS  # Set list to same as command line args

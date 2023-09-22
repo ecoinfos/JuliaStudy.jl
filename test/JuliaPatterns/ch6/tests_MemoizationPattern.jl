@@ -3,6 +3,7 @@ using JuliaStudy
 using JuliaStudy.JuliaPatterns.MemorizationPattern
 using Memoize
 using Caching
+using BenchmarkTools
 
 PROJECT_ROOT = pkgdir(JuliaStudy)
 CURRENT_SRC = "test/JuliaPatterns/ch6/"
@@ -63,15 +64,19 @@ SRC_DIR = joinpath(PROJECT_ROOT, CURRENT_SRC)
   df_again = read_csv(SRC_DIR * "Film_Permits.csv")
   @test df == df_again
 
-  propertynames(read_csv)
-  read_csv.cache
-  read_csv.filename
-  @persist! read_csv
-  read_csv
-  @empty! read_csv
+  # propertynames(@cache read_csv)
+  dc = @cache read_csv "/tmp/diskcash.bin"
+  dc.cache
+  dc.filename
+  @persist! dc
+  dc
+  @empty! dc
 
   df2 = read_csv(SRC_DIR * "Film_Permits.csv")
   size(df2)
-  read_csv
-  @syncache! read_csv "disk"
+  dc
+  @syncache! dc "disk"
+  @test isfile("/tmp/diskcash.bin") == true
+  @empty! dc true
+  @test isfile("/tmp/diskcash.bin") == false
 end

@@ -99,7 +99,7 @@ end
 
 sum_abs2 = memorize3(slow_sum_abs)
 
-@cache function read_csv(filename::AbstractString)
+function read_csv(filename::AbstractString)
   println("Reading file: ", filename)
   @time df = CSV.File(filename) |> DataFrame
   return df

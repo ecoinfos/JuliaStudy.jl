@@ -28,7 +28,7 @@ function TextStyle(;
     rotation)
 end
 
-@kwdef struct TextStyle2
+Base.@kwdef struct TextStyle2
   font_family::Any
   font_size::Any
   font_weight = "Normal"

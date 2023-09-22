@@ -53,16 +53,16 @@ After `make` command, `neovim` is launched and open `Example.jl` source file wit
 some errors. If you wait a moment and no problem occur to install, you can find
 some bullets as following screenshot.
 
-![Example.jl with bullets](../assets/julia_lsp_result.png)
+![Example.jl with bullets](./assets/julia_lsp_result.png)
 
 Then just quit `neovim` and continue and finish installation.
 To test installation, open any example Julia file and change keyword `function` to
 `func tion` and at the same line, input `gl`. If you have some bullets and
 messages as following, your installation is successful.
-![Success to install](../assets/julia_lsp_install_success.png)
+![Success to install](./assets/julia_lsp_install_success.png)
 
 If you have any error to load Julia LSP, you can find following errror message in `neovim`.
-![Fail message](../assets/julia_lsp_error.png)
+![Fail message](./assets/julia_lsp_error.png)
 
 As you can find in the following, `LanguageServer` package depends on
 `JuliaFormatter`, `StaticLint`, and `SymbolServer`. That means we do not have to

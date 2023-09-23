@@ -318,6 +318,35 @@ Some frequently used snippets are
 
 For more snippets, please refer to [`julia.lua`](https://github.com/erdosxx/Neovim-from-scratch/blob/27_Julia_REPL/lua/user/LuaSnip/julia.lua).
 
+## Run tests and check documents
+
+When you finish to setup environment and you can try to
+run all tests in `JuliaStudy` repository as following.
+
+```shell
+$ cd ~/localgit/JuliaStudy
+$ julia --project=.
+julia> using Pkg
+julia> Pkg.test()
+...
+Test Summary: | Pass  Broken  Total     Time
+All Tests     |  316       1    317  4m53.5s
+     Testing JuliaStudy tests passed
+```
+
+This is important to run all tests before you commit your codes.
+If you have no error messages as above result, you
+can submit your documents in Github.
+The Broken test is skipped test for temporary exception.
+
+To check the documents for `Documenter` tool, run `make.jl` in `docs` project as following.
+
+```shell
+$ cd ~/localgit/JuliaStudy/docs
+$ julia --porject=.
+julia> include("make.jl")
+```
+
 ## To do or practice
 
 1. Add '.JuliaFormatter.toml' file to `PkgTemplates` to define format option.

@@ -28,5 +28,14 @@ Documentation for [JuliaStudy](https://github.com/ecoinfos/JuliaStudy.jl).
 ```
 
 ```@autodocs
-Modules = [JuliaStudy]
+Modules = [
+JuliaStudy,
+JuliaStudy.Julia2ndLang.BattleSimul,
+JuliaStudy.Julia2ndLang.ToyGeometry,
+JuliaStudy.JuliaPatterns.Calculator,
+JuliaStudy.JuliaPatterns.DataTypeConcepts,
+JuliaStudy.JuliaPatterns.SharedArrayPattern,
+JuliaStudy.JuliaPatterns.SpaceWar,
+JuliaStudy.JuliaPatterns.Vehicle,
+]
 ```

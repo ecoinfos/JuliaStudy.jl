@@ -30,10 +30,10 @@ makedocs(;
         "Storing data in dictionaries"=>"Julia2ndLang/ch6_storing_data_in_dictionaries.md",
         "Understanding types"=>"Julia2ndLang/ch7_understanding_types.md",
       ],
-    # "Hands-On Design Patterns and Best Practices with Julia" =>
-    #   Any[
-    #     "Modules, Packages, and Data Type Concepts"=>"JuliaPatterns/ch2_modules_packages_and_data_type_concepts.md",
-    #   ],
+    "Hands-On Design Patterns and Best Practices with Julia" =>
+      Any[
+        "Modules, Packages, and Data Type Concepts"=>"JuliaPatterns/ch2_modules_packages_and_data_type_concepts.md",
+      ],
   ]
 )
 

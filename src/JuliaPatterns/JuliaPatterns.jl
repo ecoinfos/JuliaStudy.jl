@@ -19,5 +19,7 @@ include("ch7/MyPackage2.jl")
 include("ch7/CalculatorCh7.jl")
 include("ch7/MortgageCh7.jl")
 include("ch7/KeywordDefinitionPattern.jl")
+include("ch7/CodeGenerationPattern.jl")
+include("ch7/DomainSpecificLanguagePattern.jl")
 
 end

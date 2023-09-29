@@ -1,8 +1,9 @@
 using Test
 
 tests = [
-  "Julia2ndLang/ch16",
+  "Julia2ndLang/ch3",
   "Julia2ndLang/ch7",
+  "Julia2ndLang/ch16",
   "JuliaPatterns/ch2",
   "JuliaPatterns/ch3",
   "JuliaPatterns/ch4",

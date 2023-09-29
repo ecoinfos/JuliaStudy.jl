@@ -1,7 +1,7 @@
 using Test
-using JuliaStudy.JuliaPatterns.DelegationPattern
-using JuliaStudy.JuliaPatterns.HolyTraitsPattern
-using JuliaStudy.JuliaPatterns.ParametricTypePattern
+import JuliaStudy.JuliaPatterns.DelegationPattern as DP
+import JuliaStudy.JuliaPatterns.HolyTraitsPattern as HT
+import JuliaStudy.JuliaPatterns.ParametricTypePattern as PT
 
 using Lazy: @forward
 using OffsetArrays
@@ -15,27 +15,27 @@ using Random, Dates, NamedDims
 end
 
 @testset "Holy Traits Pattern" begin
-  cash = Money("USD", 100.00)
-  @test tradable(cash)
-  @test marketprice(cash) == 100.00
+  cash = HT.Money("USD", 100.00)
+  @test HT.tradable(cash)
+  @test HT.marketprice(cash) == 100.00
 
   # Without qualifier, Stock is from ch2/DataTypeConcepts.jl
-  aapl = HolyTraitsPattern.Stock("AAPL", "Apple, Inc.")
-  @test tradable(aapl)
+  aapl = HT.Stock("AAPL", "Apple, Inc.")
+  @test HT.tradable(aapl)
   Random.seed!(1234)
-  @test marketprice(aapl) == 216
+  @test HT.marketprice(aapl) == 216
 
-  home = Residence("Los Angeles")
-  @test tradable(home) == false
-  @test_throws ErrorException marketprice(home)
+  home = HT.Residence("Los Angeles")
+  @test HT.tradable(home) == false
+  @test_throws ErrorException HT.marketprice(home)
 
-  bill = TreasuryBill("123456789")
-  @test tradable(bill)
-  @test_throws ErrorException marketprice(bill)
+  bill = HT.TreasuryBill("123456789")
+  @test HT.tradable(bill)
+  @test_throws ErrorException HT.marketprice(bill)
 
-  mybook = Book("Shape")
-  @test tradable(mybook)
-  @test marketprice(mybook) == 10.0
+  mybook = HT.Book("Shape")
+  @test HT.tradable(mybook)
+  @test HT.marketprice(mybook) == 10.0
 
   collect(Iterators.take(Iterators.repeated(1), 5))
   @test Base.IteratorSize(Iterators.repeated(1)) == Base.IsInfinite()
@@ -43,27 +43,27 @@ end
   BitArray([isodd(x) for x in 1:5])
   @test_throws ArgumentError BitArray(Iterators.repeated(1))
 
-  @test_throws ErrorException marketprice2(Residence("Los Angeles"))
+  @test_throws ErrorException HT.marketprice2(HT.Residence("Los Angeles"))
 
-  @test marketprice2(aapl) == 123
+  @test HT.marketprice2(aapl) == 123
 end
 
 @testset "Parametric Type Pattern" begin
-  stock = ParametricTypePattern.Stock("AAPL", "Apple Inc.")
-  option = StockOption("AAPLC", Call, 200, Date(2019, 12, 20))
-  SingleTrade(Long, stock, 100, 188.0)
-  SingleTrade(Long, option, 100, 3.5)
+  stock = PT.Stock("AAPL", "Apple Inc.")
+  option = PT.StockOption("AAPLC", PT.Call, 200, Date(2019, 12, 20))
+  PT.SingleTrade(PT.Long, stock, 100, 188.0)
+  PT.SingleTrade(PT.Long, option, 100, 3.5)
 
-  @test SingleTrade{ParametricTypePattern.Stock} <: SingleTrade
-  @test SingleTrade{ParametricTypePattern.StockOption} <: SingleTrade
-  @test SingleTrade(Long, stock, 100, 188.0) |> payment == 18800.0
-  @test SingleTrade(Long, option, 1, 3.50) |> payment == 350.0
+  @test PT.SingleTrade{PT.Stock} <: PT.SingleTrade
+  @test PT.SingleTrade{PT.StockOption} <: PT.SingleTrade
+  @test PT.SingleTrade(PT.Long, stock, 100, 188.0) |> PT.payment == 18800.0
+  @test PT.SingleTrade(PT.Long, option, 1, 3.50) |> PT.payment == 350.0
 
-  pt = PairTrade(SingleTrade(Long, stock, 100, 188.0),
-    SingleTrade(Short, option, 1, 3.5))
-  @test payment(pt) == 18450.0
+  pt = PT.PairTrade(PT.SingleTrade(PT.Long, stock, 100, 188.0),
+    PT.SingleTrade(PT.Short, option, 1, 3.5))
+  @test PT.payment(pt) == 18450.0
 
-  M = reshape(collect(1:9), 3, 3)
+  M = PT.reshape(collect(1:9), 3, 3)
   nda = NamedDimsArray{(:x, :y)}(M)
   @test dimnames(nda) == (:x, :y)
   @test NamedDimsArray{(:x, :y), Int64, Array{Int64, 2}} <:

@@ -1,5 +1,5 @@
 using Test
-using JuliaStudy.Julia2ndLang.ToyGeometry
+using JuliaStudy.Julia2ndLang.ToyGeometry: cosine, sine
 
 @testset "cosine tests" begin
   @test cosine(π) ≈ -1.0

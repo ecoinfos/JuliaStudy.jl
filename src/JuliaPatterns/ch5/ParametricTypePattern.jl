@@ -2,10 +2,6 @@ module ParametricTypePattern
 
 using Dates
 
-export StockOption, SingleTrade
-export Call, Put, Long, Short
-export payment, PairTrade
-
 # Abstract type hirearchy for personal assets
 abstract type Asset end
 abstract type Investment <: Asset end

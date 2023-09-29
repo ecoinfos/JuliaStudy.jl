@@ -6,10 +6,6 @@ using SimpleTraits
 # using JuliaStudy.JuliaPatterns.DataTypeConcepts: House,
 #   Equity, FixedIncome, Cash, Investment
 
-export Money, tradable, marketprice, Stock, Residence, TreasuryBill
-export Book
-export marketprice2
-
 abstract type Asset end
 
 abstract type Property <: Asset end

@@ -3,8 +3,6 @@ module DelegationPattern
 using Dates
 using Lazy: @forward
 
-export SavingsAccount, balance, deposit!
-
 mutable struct Account
   account_number::String
   balance::Float64

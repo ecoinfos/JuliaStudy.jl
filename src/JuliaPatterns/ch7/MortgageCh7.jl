@@ -1,7 +1,5 @@
 module MortgageCh7
 
-export payment, get_days_per_year
-
 # Access to parent module's variable
 using ..CalculatorCh7: days_per_year
 

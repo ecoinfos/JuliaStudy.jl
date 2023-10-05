@@ -77,13 +77,13 @@ environment in Julia has same meaning in virtual environment in Python.
 
 ## Using and import
 
-| Ref | Statement                   | What is brought into the scope                                      |
-| :-: | :-------------------------- | :------------------------------------------------------------------ |
-|  1  | using Calculator            | interest <br/> rate <br/> Calculator.interest <br/> Calculator.rate |
-|  2  | using Calculator: interest  | interest                                                            |
-|  3  | import Calculator           | Calculator.interest <br/> Calculator.rate                           |
-|  4  | import Calculator: interest | Calculator.interest                                                 |
-|  4  | import Calculator.interest  | Calculator.interest                                                 |
+| Ref | Statement                   | What is brought into the scope                       |
+| :-: | :-------------------------- | :--------------------------------------------------- |
+|  1  | using Calculator            | interest, rate, Calculator.interest, Calculator.rate |
+|  2  | using Calculator: interest  | interest                                             |
+|  3  | import Calculator           | Calculator.interest, Calculator.rate                 |
+|  4  | import Calculator: interest | Calculator.interest                                  |
+|  4  | import Calculator.interest  | Calculator.interest                                  |
 
 ## Environment stack
 

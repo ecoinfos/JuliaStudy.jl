@@ -4,7 +4,7 @@ import JuliaStudy.Julia2ndLang.TrigCh3 as TG
 
 @testset "Boolean expressions" begin
   @test (3 > 5) == false
-  @test (8 > 3) == true
+  @test (8 > 3)
   @test 8 == 5 + 3
   @test (3 == 5) == false
   @test 3 ≤ 3
@@ -38,6 +38,8 @@ end
   x = 4
   y = 8
   z = 3
+  # x = 4; y = 8; z = 3
+  # [a, b, c] = [4, 8, 3]
   @test [x, y, z] == [4, 8, 3]
 
   x = 3 + 4
@@ -77,6 +79,8 @@ end
 
 @testset "Range object" begin
   r = 2:4
+  @test typeof(r) == UnitRange{Int64}
+  @test r == [2, 3, 4]
   @test first(r) == 2
   @test last(r) == 4
   @test in(1, r) == false
@@ -125,6 +129,7 @@ end
   else
     4
   end
+  y = if (x > 3) 6 else 4 end
   @test y == 6
 
   @test factorial(0) == 1

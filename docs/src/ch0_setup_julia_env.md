@@ -347,6 +347,22 @@ $ julia --porject=.
 julia> include("make.jl")
 ```
 
+If you have an error as following,
+
+```shell
+julia> include("make.jl")
+ERROR: LoadError: ArgumentError: Package JuliaStudy [d399ac94-384f-4751-bea9-3a8f3e663572]
+is required but does not seem to be installed:
+ - Run `Pkg.instantiate()` to install all recorded dependencies.
+...
+```
+
+you need to add `JuliaStudy` as a development environment.
+
+```shell
+julia> Pkg.develop(path="..")
+```
+
 ## To do or practice
 
 1. Add '.JuliaFormatter.toml' file to `PkgTemplates` to define format option.

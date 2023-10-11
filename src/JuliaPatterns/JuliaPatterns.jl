@@ -21,5 +21,6 @@ include("ch7/MortgageCh7.jl")
 include("ch7/KeywordDefinitionPattern.jl")
 include("ch7/CodeGenerationPattern.jl")
 include("ch7/DomainSpecificLanguagePattern.jl")
+include("ch8/AccessorPatterns.jl")
 
 end

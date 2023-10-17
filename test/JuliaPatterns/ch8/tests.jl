@@ -1,1 +1,6 @@
 include("tests_Accessor_Patterns.jl")
+include("tests_Property_Patterns.jl")
+include("tests_let_block_patterns.jl")
+include("tests_Exception_Handling_Patterns.jl")
+include("tests_performance_impact_exception.jl")
+include("tests_retrying_operations.jl")

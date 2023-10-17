@@ -6,4 +6,3 @@ import JuliaStudy.JuliaPatterns.AccessorPatterns as AP
   sim = AP.simulate(Normal(), 2, 1000)
   sim.stats
 end
-

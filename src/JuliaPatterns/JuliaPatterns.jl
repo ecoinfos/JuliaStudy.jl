@@ -22,5 +22,10 @@ include("ch7/KeywordDefinitionPattern.jl")
 include("ch7/CodeGenerationPattern.jl")
 include("ch7/DomainSpecificLanguagePattern.jl")
 include("ch8/AccessorPatterns.jl")
+include("ch8/PropertyPatterns.jl")
+include("ch8/WebCrawler.jl")
+include("ch8/ExceptionStackFrames.jl")
+include("ch8/PerformanceImpactException.jl")
+include("ch8/RetryingOperations.jl")
 
 end

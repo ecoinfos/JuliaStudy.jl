@@ -157,6 +157,17 @@ end
 end
 
 @testset "Filtering pizzzas based on predicates" begin
+  name(pizza) = pizza[1]
+  portion(pizza) = pizza[2]
+  price(pizza) = pizza[3]
+
+  sales = [
+    ("hawaiian", 'S', 10.5),
+    ("sicilian", 'S', 12.25),
+    ("hawaiian", 'L', 16.5),
+    ("bbq chicken", 'L', 20.75),
+    ("bbq chicken", 'M', 16.75),
+  ]
   @test iseven(3) == false
   @test iseven(2)
   @test isodd(3)

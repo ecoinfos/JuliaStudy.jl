@@ -27,5 +27,10 @@ include("ch8/WebCrawler.jl")
 include("ch8/ExceptionStackFrames.jl")
 include("ch8/PerformanceImpactException.jl")
 include("ch8/RetryingOperations.jl")
+include("ch9/SingletonTypeDispatchPattern.jl")
+include("ch9/CreditApproval.jl")
+include("ch9/CreditApprovalStub.jl")
+include("ch9/CreditApprovalMockingStub.jl")
+include("ch9/HackerNewsAnalysis.jl")
 
 end

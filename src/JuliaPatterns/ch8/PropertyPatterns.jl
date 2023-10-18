@@ -63,7 +63,7 @@ function Base.setproperty!(fc::FileContent2, s::Symbol, value)
   error("Property $s cannot be changed.")
 end
 
-function Base.propertynames(fc::FileContent2)
+function Base.propertynames(::FileContent2)
   return (:path, :contents)
 end
 

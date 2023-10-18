@@ -4,6 +4,7 @@ using JuliaStudy.JuliaPatterns.WebCrawler
 import JuliaStudy.JuliaPatterns.ExceptionStackFrames as ES
 
 @testset "Exception Handling Patterns" begin
+  reset_crawler!()
   add_site!(Target(url = "http://www.this-site-does-not-exist-haha.com"))
   # @test_throws HTTP.Exception crawl_sites!()
 

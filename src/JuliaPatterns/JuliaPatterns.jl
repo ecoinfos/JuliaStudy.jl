@@ -32,5 +32,6 @@ include("ch9/CreditApproval.jl")
 include("ch9/CreditApprovalStub.jl")
 include("ch9/CreditApprovalMockingStub.jl")
 include("ch9/HackerNewsAnalysis.jl")
+include("ch10/PiracyAntiPattern.jl")
 
 end

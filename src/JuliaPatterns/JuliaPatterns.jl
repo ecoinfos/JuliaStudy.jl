@@ -33,5 +33,10 @@ include("ch9/CreditApprovalStub.jl")
 include("ch9/CreditApprovalMockingStub.jl")
 include("ch9/HackerNewsAnalysis.jl")
 include("ch10/PiracyAntiPattern.jl")
+include("ch11/FactoryMethodPattern.jl")
+include("ch11/AbstractFactoryPattern.jl")
+include("ch11/SingletonPattern.jl")
+include("ch11/PrototypePattern.jl")
+include("ch11/ChainOfResponsibilityPattern.jl")
 
 end

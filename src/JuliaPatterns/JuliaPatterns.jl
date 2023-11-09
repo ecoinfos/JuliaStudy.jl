@@ -38,5 +38,6 @@ include("ch11/AbstractFactoryPattern.jl")
 include("ch11/SingletonPattern.jl")
 include("ch11/PrototypePattern.jl")
 include("ch11/ChainOfResponsibilityPattern.jl")
+include("ch11/MediatorPattern.jl")
 
 end

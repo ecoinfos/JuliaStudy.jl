@@ -39,5 +39,6 @@ JuliaStudy.JuliaPatterns.SharedArrayPattern,
 JuliaStudy.JuliaPatterns.SpaceWar,
 JuliaStudy.JuliaPatterns.Vehicle,
 JuliaStudy.JuliaPatterns.DomainSpecificLanguagePattern,
+JuliaStudy.JuliaPatterns.FactoryMethodPattern,
 ]
 ```

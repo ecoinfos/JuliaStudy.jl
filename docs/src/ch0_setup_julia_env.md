@@ -302,7 +302,7 @@ To make coding more easy, a few snippets are defined in
 you can refer to offical [LuaSnip](https://github.com/L3MON4D3/LuaSnip) site.
 Some frequently used snippets are
 
-- `df` : Define function. Type `df` at the beginning of a line,
+- `def` : Define function. Type `df` at the beginning of a line,
   this automatically generates `function end` block.
   There are three fields to input and when finish one,
   you can shift to next field by [`<F2>`](https://github.com/erdosxx/Neovim-from-scratch/blob/27_Julia_REPL/ftplugin/julia.lua)

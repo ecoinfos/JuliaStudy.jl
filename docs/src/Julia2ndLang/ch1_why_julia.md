@@ -2,6 +2,20 @@
 
 ## What is Julia?
 
+The reason to use Julia can be found in the
+[Julia blog: Why we create Julia](https://julialang.org/blog/2012/02/why-we-created-julia/).
+
+> We are greedy: we want more.
+> We want a language that's open source, with a liberal license.
+> We want the speed of C with the dynamism of Ruby.
+> We want a language that's [**homoiconic**](https://en.wikipedia.org/wiki/Homoiconicity), with true macros like Lisp,
+> but with obvious, familiar mathematical notation like Matlab.
+> We want something as usable for general programming as Python,
+> as easy for statistics as R, as natural for string processing as Perl,
+> as powerful for linear algebra as Matlab, as good at gluing programs together as the shell.
+> Something that is dirt simple to learn, yet keeps the most serious hackers happy.
+> We want it interactive and we want it compiled.
+
 From Ref 1.
 
 > Julia is a general-purpose, multi-platform programming Language that is
@@ -16,11 +30,12 @@ From Ref 1.
 Mainly cited from Ref 1.
 
 > Julia is a relatively new programming language that overcomes the two-language problem (Ref 2.)
-  * It provides both "easy-to-use" and "high performance" advantages.
-  * Growing ecosystem of state-of-the-art application packages allow scientists to expand their research interests.
-> Julia is a dynamically typed but is as fast as statically typed languages through JIT compilation.
-  * This is TRUE in recent scientific research, in which large amount data is available.
-> Julia catches two rabbits! -> Satisfy scientists and other developers who require the fascinating features of both dynamically & statically typed languages.
+
+- It provides both "easy-to-use" and "high performance" advantages.
+- Growing ecosystem of state-of-the-art application packages allow scientists to expand their research interests.
+  > Julia is a dynamically typed but is as fast as statically typed languages through JIT compilation.
+- This is TRUE in recent scientific research, in which large amount data is available.
+  > Julia catches two rabbits! -> Satisfy scientists and other developers who require the fascinating features of both dynamically & statically typed languages.
 
 add an image (Ref 3.)
 
@@ -44,14 +59,12 @@ From Ref 1.
 
 Examples of Julia applications in various resaerch fields
 
-|         Science         |       Non-science      |
-| :---------------------: | : -------------------: |
-| Computational biology   | Genie, Blink, GTK, QML |
-| Statistics              | GameZero, Luxor, Gumbo |
-| Machine learning        | Miletus, TerminalMenus |
-| Image processing        | Cascadia, QRCode       |
-
-
+|        Science        |      Non-science       |
+| :-------------------: | :--------------------: |
+| Computational biology | Genie, Blink, GTK, QML |
+|      Statistics       | GameZero, Luxor, Gumbo |
+|   Machine learning    | Miletus, TerminalMenus |
+|   Image processing    |    Cascadia, QRCode    |
 
 # References
 

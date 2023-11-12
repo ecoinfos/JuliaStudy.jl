@@ -40,5 +40,6 @@ include("ch11/PrototypePattern.jl")
 include("ch11/ChainOfResponsibilityPattern.jl")
 include("ch11/MediatorPattern.jl")
 include("ch11/MementoPattern.jl")
+include("ch11/ObserverPattern.jl")
 
 end

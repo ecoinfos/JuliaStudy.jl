@@ -43,5 +43,6 @@ include("ch11/MementoPattern.jl")
 include("ch11/ObserverPattern.jl")
 include("ch11/StatePattern.jl")
 include("ch11/StrategyPattern.jl")
+include("ch11/TemplateMethodPattern.jl")
 
 end

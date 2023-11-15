@@ -46,5 +46,6 @@ include("ch11/StrategyPattern.jl")
 include("ch11/TemplateMethodPattern.jl")
 include("ch11/AdapterPattern.jl")
 include("ch11/CompositePattern.jl")
+include("ch12/InheritanceAndVariance.jl")
 
 end

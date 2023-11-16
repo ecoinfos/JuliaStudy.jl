@@ -6,6 +6,7 @@ CurrentModule = JuliaStudy
 
 1. [J2L: Julia as a second language, Erik Engheim, 2023](https://github.com/ordovician/code-samples-julia-second-language)
 2. [JDP: Hands on design patterns and best practices with julia, Tom Kwong, 2020](https://github.com/PacktPublishing/Hands-on-Design-Patterns-and-Best-Practices-with-Julia)
+3. [JHP: Julia High Performance, 2nd Edition, Avik Sengupta, 2019](https://github.com/PacktPublishing/Julia-High-Performance-Second-Edition)
 
 # Study Schedule (2023)
 

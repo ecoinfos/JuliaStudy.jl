@@ -2,7 +2,9 @@ using Test
 import JuliaStudy.JuliaPerformance.AnalyzingPerformance as AnaP
 
 using Profile
-using ProfileView
+# Because Gibhub Action does not support GUI,
+# comment following code
+# using ProfileView
 using BenchmarkTools
 using TimerOutputs
 

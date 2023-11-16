@@ -1,5 +1,8 @@
 [deps]
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 DocumenterTools = "35a29f4d-8980-5a13-9543-d66fff28ecb8"
 JuliaStudy = "d399ac94-384f-4751-bea9-3a8f3e663572"
 LanguageServer = "2b0e0bc5-e4fd-59b4-8912-456d1b03d8d7"
+ProfileView = "c46f51b8-102a-5cf2-8d2c-8597cb0e0da7"
+TimerOutputs = "a759f4b9-e2f1-59dc-863e-4aeb61b1ea8f"

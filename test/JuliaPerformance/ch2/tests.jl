@@ -28,7 +28,7 @@ using TimerOutputs
   Profile.print(format = :flat)
   Profile.clear()
 
-  ProfileView.view()
+  # ProfileView.view()
 
   AnaP.randmsq_timed()
   print_timer(AnaP.to)

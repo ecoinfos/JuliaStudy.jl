@@ -20,6 +20,7 @@ tests = [
   "JuliaPatterns/ch12",
   "JuliaPerformance/ch1",
   "JuliaPerformance/ch2",
+  "JuliaPerformance/ch3",
 ]
 if !isempty(ARGS)
   tests = ARGS  # Set list to same as command line args

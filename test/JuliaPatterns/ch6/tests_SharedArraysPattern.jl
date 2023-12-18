@@ -58,18 +58,18 @@ rmprocs(proc_list)
   A[:] = rand(10_000, 10_000)
   varinfo(Main, r"A")
 
-  @everywhere struct Point{T <: Real}
+  @everywhere struct ShPoint{T <: Real}
     x::T
     y::T
   end
 
-  A = SharedArray{Point{Float64}}(3)
-  A .= [Point(rand(), rand()) for in in 1:length(A)]
+  A = SharedArray{ShPoint{Float64}}(3)
+  A .= [ShPoint(rand(), rand()) for in in 1:length(A)]
 
-  @everywhere mutable struct MutablePoint{T <: Real}
+  @everywhere mutable struct MutableShPoint{T <: Real}
     x::T
     y::T
   end
 
-  @test_throws ArgumentError B=SharedArray{MutablePoint{Float64}}(3)
+  @test_throws ArgumentError B=SharedArray{MutableShPoint{Float64}}(3)
 end

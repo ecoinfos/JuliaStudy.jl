@@ -313,8 +313,6 @@ Some frequently used snippets are
   Type `<Ctrol + h>` or `<Ctrol + l>` you can change
   the selection between `struct` and `mutable struct`.
   After selection one, type `<F2>` to go next field.
-- `@` : This translate to `::` after typing variable name.
-  For example, `foo@` changed to `foo::` to define type.
 
 For more snippets, please refer to [`julia.lua`](https://github.com/erdosxx/Neovim-from-scratch/blob/27_Julia_REPL/lua/user/LuaSnip/julia.lua).
 
@@ -361,6 +359,64 @@ you need to add `JuliaStudy` as a development environment.
 
 ```shell
 julia> Pkg.develop(path="..")
+```
+
+## Setup Julia Mono Nerd font with input method in Neovim
+
+Julia uses unicodes extensively for mathematical symbols.
+For example in chapter 9 of Julia Patters book,
+"∘" is used for composed operator as following.
+
+```shell
+julia> top_story_id = first ∘ fetch_top_stories
+```
+
+To support unicode fully, I recommend to use
+[Julia Mono font](https://juliamono.netlify.app/) with
+[Nerd patch](https://github.com/mietzen/juliamono-nerd-font).
+You can find full list of unicode in
+[Julia Unicode Input](https://docs.julialang.org/en/v1/manual/unicode-input/) page.  
+As this page shows, to input unicode like "∘" in REPL,
+input `\circ` with tab key.
+To support these kinds of shortcuts in Neovim, I defined
+the Lua snippets in the file, `lur/user/LuaSnip/julia.lua`
+as following code.
+
+```lua
+local math_symbs = {
+	{ name = "alpha", symbol = "α" },
+	{ name = "beta", symbol = "β" },
+	{ name = "gamma", symbol = "γ" },
+	{ name = "delta", symbol = "δ" },
+	{ name = "Delta", symbol = "Δ" },
+	{ name = "lambda", symbol = "λ" },
+	{ name = "Lambda", symbol = "Λ" },
+	{ name = "theta", symbol = "θ" },
+	{ name = "mu", symbol = "μ" },
+	{ name = "pi", symbol = "π" },
+	{ name = "eta", symbol = "η" },
+	{ name = "varphi", symbol = "φ" },
+	{ name = "psi", symbol = "ψ" },
+	{ name = "phi", symbol = "ϕ" },
+	{ name = "epsilon", symbol = "ϵ" },
+	{ name = "sigma", symbol = "σ" },
+	{ name = "circ", symbol = "∘" },
+    ...
+}
+```
+
+So, for more unicode shortcuts in Noevim, we can add
+additional symbols with shortcuts in the file.
+To get the matching symbol with unicode point
+or search symbol by name, refer to following Julia code.
+
+```@example 1
+using Glyphy
+glyphy(0x02218)
+```
+
+```@example 1
+glyphy("ring operator")
 ```
 
 ## To do or practice

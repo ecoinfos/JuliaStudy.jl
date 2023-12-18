@@ -13,15 +13,27 @@ CurrentModule = JuliaStudy
 |  Date  | Range                                                                                           | Presenter |
 | :----: | :---------------------------------------------------------------------------------------------- | :-------: |
 | Aug 2  | [Setup Julia Repo in GitHub with Actions](@ref)                                                 |   Norel   |
-| Aug 10 | [Setup Julia Repo in GitHub with Actions](@ref), [Why Julia?](@ref)                             |   Norel   |
+| Aug 18 | [Setup Julia Repo in GitHub with Actions](@ref), [Why Julia?](@ref)                             |   Norel   |
 | Aug 24 | [Why Julia?](@ref)                                                                              |  Kjeong   |
 | Sep 15 | [Organizing and modularizing your code](@ref), [Modules, Packages and Data Type Concepts](@ref) |   Norel   |
 | Sep 24 | [Julia as a calculator](@ref)                                                                   |  Kjeong   |
 | Oct 6  | [Control flow](@ref)                                                                            |   Norel   |
-| Oct 13 | [Julia as a spreadsheet](@ref)                                                                  |  kjeong   |
-| Oct 20 | [Working with text](@ref)                                                                       |   Norel   |
-| Oct 27 | [Storing data in dictionaries](@ref)                                                            |  kjeong   |
-| Nov 3  | [Understanding types](@ref), [Modules, Packages and Data Type Concepts](@ref)                   |   Norel   |
+| Oct 13 | [Control flow](@ref)                                                                            |   Norel   |
+| Nov 5  | [Julia as a spreadsheet](@ref)                                                                  |  Kjeong   |
+| Nov 10 | [Julia as a spreadsheet](@ref), [Working with text](@ref)                                       |   Norel   |
+| Nov 18 | [Storing data in dictionaries](@ref)                                                            |  Kjeong   |
+| Dec 1  | [Understanding types](@ref), [Modules, Packages and Data Type Concepts](@ref)                   |   Norel   |
+| Dec 16 | [Understanding types](@ref), [Modules, Packages and Data Type Concepts](@ref)                   |   Norel   |
+| Dec 22 | Building a rocket                                                                               |  Kjeong   |
+| Dec 29 | Conversion and promotion                                                                        |   Norel   |
+| Jan 5  | Representing unknown values                                                                     |  Kjeong   |
+| Jan 12 | Working with strings                                                                            |   Norel   |
+| Jan 19 | Understanding Julia collections                                                                 |  Kjeong   |
+| Jan 26 | Working with sets                                                                               |   Norel   |
+| Feb 2  | Working with vectors and matrices                                                               |  Kjeong   |
+| Feb 9  | Functional programming in Julia                                                                 |   Norel   |
+| Feb 16 | Input and output                                                                                |  Kjeong   |
+| Feb 23 | Defining parametric types                                                                       |   Norel   |
 
 Documentation for [JuliaStudy](https://github.com/ecoinfos/JuliaStudy.jl).
 

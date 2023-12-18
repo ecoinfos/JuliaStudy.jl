@@ -10,6 +10,7 @@ include("ch7/BattleSimul.jl")
 include("ch8/Rockets.jl")
 include("ch8/simulate.jl")
 include("ch9/DefineCustomAngle.jl")
+include("ch10/NothingDataStructure.jl")
 include("ch16/hobby/ToyGeometry/src/ToyGeometry.jl")
 
 end
